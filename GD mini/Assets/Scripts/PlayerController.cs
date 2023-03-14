@@ -14,8 +14,14 @@ public class PlayerController : MonoBehaviour
     
     private Vector3 _input;
     private bool _playerIsOnGround = true;
+    private double distToGround;
 
-    
+    void Start()
+    {
+        // get the distance to ground
+        distToGround = GetComponent<Collider>().bounds.extents.y;
+    }
+
     void Update()
     {
         GatherInput();
@@ -46,7 +52,7 @@ public class PlayerController : MonoBehaviour
             var relative = (transform.position + _input) - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
 
-            if (_playerIsOnGround)
+            if (IsGrounded())
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
             }
@@ -60,7 +66,8 @@ public class PlayerController : MonoBehaviour
     }
     void Move()
     {
-        if(_playerIsOnGround){
+        if(IsGrounded())
+        {
             _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
         }else {
             _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speedInAir * Time.deltaTime);    
@@ -70,7 +77,7 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump") && _playerIsOnGround)
+        if(Input.GetButtonDown("Jump") && IsGrounded())
         {
             _rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
             _playerIsOnGround = false;
@@ -83,6 +90,12 @@ public class PlayerController : MonoBehaviour
         {
             _playerIsOnGround = true;
         }
+    }
+
+ 
+   bool IsGrounded() 
+    {
+        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1);
     }
 }
 
