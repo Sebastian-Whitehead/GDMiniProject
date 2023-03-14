@@ -66,10 +66,9 @@ public class PlayerController : MonoBehaviour
     }
     void Move()
     {
-        if(IsGrounded())
-        {
+        if (IsGrounded()) {
             _rb.MovePosition(transform.position + (transform.forward * Mathf.Round(_input.magnitude)) * _speed * Time.deltaTime);
-        }else {
+        } else {
             _rb.MovePosition(transform.position + (transform.forward * Mathf.Round(_input.magnitude)) * _speedInAir * Time.deltaTime);    
         }
     }

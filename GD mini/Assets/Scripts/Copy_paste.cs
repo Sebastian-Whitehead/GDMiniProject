@@ -7,6 +7,7 @@ public class Copy_paste : MonoBehaviour {
     public LayerMask IgnoreMe;
     private Camera camera;
     private GameObject clipboard;
+    private bool hideClipboard = false;
     private GameObject ghost;
     private Color ghostColor;
     private RaycastHit hit;
@@ -19,7 +20,9 @@ public class Copy_paste : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         DetectObjectWithRaycast();
+        emptyClipboard();
     }
+
 
     public void DetectObjectWithRaycast() {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
@@ -59,7 +62,7 @@ public class Copy_paste : MonoBehaviour {
         ghost.transform.position = pasteLocation;
         
         // Disable ghost
-        if (ghost.GetComponent<CheckCollision>().colliding) {
+        if (ghost.GetComponent<CheckCollision>().colliding || hideClipboard) {
             ghostColor.a = 0.0f;
             ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
             return;
@@ -73,4 +76,10 @@ public class Copy_paste : MonoBehaviour {
         if (!Input.GetMouseButtonDown(0)) return;
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
+
+    public void emptyClipboard() {
+        if (!Input.GetMouseButtonDown(2)) return;
+        hideClipboard = !hideClipboard;
+    }
+
 }
