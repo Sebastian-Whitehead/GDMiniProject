@@ -37,6 +37,7 @@ public class Copy_paste : MonoBehaviour {
         if (hit.collider.gameObject.tag != "Copyable") return;
 
         clipboard = hit.collider.gameObject; // Copy object to clipboard
+        hideClipboard = false;
         makeGhost(); // Instantiate ghost
     }
 
