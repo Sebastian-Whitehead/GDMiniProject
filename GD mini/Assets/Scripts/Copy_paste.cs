@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Copy_paste : MonoBehaviour {
+
+    public LayerMask IgnoreMe;
     private Camera camera;
     private GameObject clipboard;
     private GameObject ghost;
+    private Color ghostColor;
+    private RaycastHit hit;
     
     // Start is called before the first frame update
     void Start() {
@@ -19,41 +23,54 @@ public class Copy_paste : MonoBehaviour {
 
     public void DetectObjectWithRaycast() {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (!Physics.Raycast(ray, out hit)) return;
-
-        copy(hit); // Copy object
-        paste(hit); // Paste object and show ghost
+        
+        if (!Physics.Raycast(ray, out hit, 1000, ~IgnoreMe)) return;
+        copy(); // Copy object
+        paste(); // Paste object and show ghost
     }
 
-    public void paste(RaycastHit hit) {
-        if (!(clipboard || ghost)) return;
-
-        // Show ghost
-        Vector3 pasteLocation = hit.point;
-        pasteLocation.y += clipboard.GetComponent<Collider>().bounds.size.y / 2;
-        ghost.transform.position = pasteLocation;
-
-        // Paste object
-        if (!Input.GetMouseButtonDown(0)) return;
-        Instantiate(clipboard, pasteLocation, Quaternion.identity);
-    }
-
-    public void copy(RaycastHit hit) {
+    public void copy() {
         if (!Input.GetMouseButtonDown(1)) return;
         if (hit.collider.gameObject.tag != "Copyable") return;
 
-        // Copy object to clipboard
-        clipboard = hit.collider.gameObject;
+        clipboard = hit.collider.gameObject; // Copy object to clipboard
+        makeGhost(); // Instantiate ghost
+    }
 
-        // Instantiate ghost
+    public void makeGhost() {
         Destroy(ghost);
+
         ghost = Instantiate(clipboard, hit.point, Quaternion.identity);
-        Rigidbody rb = ghost.GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.detectCollisions = false;
-        Color color = ghost.GetComponent<MeshRenderer>().material.color;
-        color.a = 0.5f;
-        ghost.GetComponent<MeshRenderer>().material.color = color;
+        ghost.name = clipboard.name + " (Ghost)";
+        ghost.layer = LayerMask.NameToLayer("Ghost");
+
+        ghost.GetComponent<Collider>().isTrigger = true;
+        ghost.GetComponent<Rigidbody>().isKinematic = true;
+        ghostColor = ghost.GetComponent<MeshRenderer>().material.color;
+    }
+
+    public void paste() {
+        if (!(clipboard || ghost)) return;
+
+        // Place ghost
+        Vector3 pasteLocation = hit.point;
+        pasteLocation.y += clipboard.GetComponent<Collider>().bounds.size.y / 2;
+        pasteLocation.y += 0.05f;
+        ghost.transform.position = pasteLocation;
+        
+        // Disable ghost
+        if (ghost.GetComponent<CheckCollision>().colliding) {
+            ghostColor.a = 0.0f;
+            ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
+            return;
+        }
+
+        // Render ghost
+        ghostColor.a = 0.5f;
+        ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
+
+        // Paste ghost
+        if (!Input.GetMouseButtonDown(0)) return;
+        Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 }
