@@ -349,7 +349,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 797794396}
   _speed: 5
-  _turnspeed: 360
+  _turnspeed: 720
+  _speedInAir: 4
+  _turnspeedInAir: 360
 --- !u!54 &797794396
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -575,7 +577,7 @@ GameObject:
   - component: {fileID: 1493081016}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
