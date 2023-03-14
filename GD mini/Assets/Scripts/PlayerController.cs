@@ -13,13 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _turnspeedInAir = 360;
     
     private Vector3 _input;
-    private bool _playerIsOnGround = true;
-    private double distToGround;
+    // private bool _playerIsOnGround = true;
+    private float _distToGround;
 
     void Start()
     {
         // get the distance to ground
-        distToGround = GetComponent<Collider>().bounds.extents.y;
+        _distToGround = GetComponent<Collider>().bounds.extents.y;
     }
 
     void Update()
@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
             var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
             var skewedInput = matrix.MultiplyPoint3x4(_input);
             
-            var relative = (transform.position + _input) - transform.position;
+            var relative = (transform.position + skewedInput) - transform.position;
             var rot = Quaternion.LookRotation(relative, Vector3.up);
-
+            
             if (IsGrounded())
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
@@ -68,9 +68,9 @@ public class PlayerController : MonoBehaviour
     {
         if(IsGrounded())
         {
-            _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speed * Time.deltaTime);
+            _rb.MovePosition(transform.position + (transform.forward * Mathf.Round(_input.magnitude)) * _speed * Time.deltaTime);
         }else {
-            _rb.MovePosition(transform.position + (transform.forward * _input.magnitude) * _speedInAir * Time.deltaTime);    
+            _rb.MovePosition(transform.position + (transform.forward * Mathf.Round(_input.magnitude)) * _speedInAir * Time.deltaTime);    
         }
     }
     
@@ -80,10 +80,11 @@ public class PlayerController : MonoBehaviour
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
             _rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
-            _playerIsOnGround = false;
+            // _playerIsOnGround = false;
         }
     }
 
+    /* Old Ground Detector Code
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("ground"))
@@ -91,11 +92,12 @@ public class PlayerController : MonoBehaviour
             _playerIsOnGround = true;
         }
     }
+    */
 
  
    bool IsGrounded() 
     {
-        return Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1);
+        return Physics.Raycast(transform.position, Vector3.down, _distToGround + 0.1f);
     }
 }
 
