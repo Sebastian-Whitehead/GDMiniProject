@@ -73,14 +73,16 @@ public class PlayerController : MonoBehaviour
     void Move() // Move character in look direction (slower if in the air)
     {
         if (IsGrounded()) {
-            _rb.MovePosition(transform.position + transform.forward * (Mathf.Round(_input.magnitude) * _speed * Time.deltaTime));
+            _rb.MovePosition(transform.position + 
+                             transform.forward * (Mathf.Round(_input.magnitude) * _speed * Time.deltaTime));
         } else {
-            _rb.MovePosition(transform.position + transform.forward * (Mathf.Round(_input.magnitude) * _speedInAir * Time.deltaTime));    
+            _rb.MovePosition(transform.position +
+                             transform.forward * (Mathf.Round(_input.magnitude) * _speedInAir * Time.deltaTime));   
         }
     }
     
 
-    void Jump() // Add jump force if space bar is pressed
+    public void Jump() // Add jump force if space bar is pressed
     {
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
