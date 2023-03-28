@@ -35,7 +35,6 @@ public class Copy_paste : MonoBehaviour {
 
     public void DetectObjectWithRaycast() {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        
         if (!Physics.Raycast(ray, out hit, 1000, ~IgnoreMe)) return;
         copy(); // Copy object
         paste(); // Paste object and show ghost
