@@ -14,8 +14,12 @@ public class FadeScreen : MonoBehaviour
     void Start()
     {
         _rend = GetComponent<Renderer>();       // Get fade screen renderer
-        if (fadeOnStart)                        // Fade screen on scene start
-            FadeIn();                          
+        if (fadeOnStart)
+        {
+            // Fade screen on scene start
+            FadeIn();
+            Debug.Log("Fading In");
+        }
     }
 
     public void Fade(float alphaIn, float alphaOut)         // Interpolate between two alfa values
