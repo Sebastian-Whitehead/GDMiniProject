@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pastes: 0
+  pastesUI: {fileID: 3292605547516006456}
   IgnoreMe:
     serializedVersion: 2
     m_Bits: 8
