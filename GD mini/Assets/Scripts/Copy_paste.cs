@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Copy_paste : MonoBehaviour {
 
+    public int pastes;
     public LayerMask IgnoreMe;
     private Camera camera;
     private GameObject clipboard;
@@ -19,6 +20,10 @@ public class Copy_paste : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (pastes <= 0) {
+            if (hideClipboard) return;
+            hideClipboard = true;
+        }
         DetectObjectWithRaycast();
         emptyClipboard();
     }
@@ -75,6 +80,7 @@ public class Copy_paste : MonoBehaviour {
 
         // Paste ghost
         if (!Input.GetMouseButtonDown(0)) return;
+        pastes--; // Count down amount of pastes left
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 
