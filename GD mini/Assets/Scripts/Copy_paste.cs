@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Copy_paste : MonoBehaviour {
 
     public int pastes;
+    public TextMeshProUGUI pastesUI;
     public LayerMask IgnoreMe;
     private Camera camera;
     private GameObject clipboard;
@@ -16,6 +19,7 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
+        pastesUI.text = string.Format("Pates: {0}", pastes);
     }
 
     // Update is called once per frame
@@ -80,7 +84,7 @@ public class Copy_paste : MonoBehaviour {
 
         // Paste ghost
         if (!Input.GetMouseButtonDown(0)) return;
-        pastes--; // Count down amount of pastes left
+        pastesUI.text = string.Format("Pates: {0}", --pastes);
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 
