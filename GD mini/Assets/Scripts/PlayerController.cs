@@ -27,22 +27,22 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        GatherInput();
-        Look();
-        Jump();
+        GatherInput(); // Get player input
+        Look(); // Rotate character to look in input direction
+        Jump(); // Jump on input
     }
 
     private void FixedUpdate()
     {
-        if (Look()){ 
-            Move();
+        if (Look()){ // Check if character is ready to move (rotated correctly)
+            Move();  // Move character in facing direction
         }
     }
 
     
 
     // --------------------------------------------------------------------------- //
-    void GatherInput()
+    void GatherInput() // Retrieved players directional input, works with both controller and direction keys
     {
         _input = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
@@ -51,18 +51,18 @@ public class PlayerController : MonoBehaviour
     {
         if (_input != Vector3.zero)
         {
-            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0));
-            var skewedInput = matrix.MultiplyPoint3x4(_input);
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0)); // A 4x4 rotation matrix that rotates 45 degrees around y axis 
+            var skewedInput = matrix.MultiplyPoint3x4(_input);      // Rotate the given input direction
             
-            var relative = (transform.position + skewedInput) - transform.position;
-            var rot = Quaternion.LookRotation(relative, Vector3.up);
+            var relative = (transform.position + skewedInput) - transform.position; // Give the relative look direction for the player object
+            var rot = Quaternion.LookRotation(relative, Vector3.up); // Target player object rotation
             
-            if (IsGrounded())
+            if (IsGrounded()) // Rotation interpolation when grounded
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
-                return transform.rotation == rot;
+                return transform.rotation == rot; // If player is ready to move
             }
-            else
+            else // Player rotation when in the air
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeedInAir * Time.deltaTime);
                 return true;
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-    void Move()
+    void Move() // Move character in look direction (slower if in the air)
     {
         if (IsGrounded()) {
             _rb.MovePosition(transform.position + transform.forward * (Mathf.Round(_input.magnitude) * _speed * Time.deltaTime));
@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    void Jump()
+    void Jump() // Add jump force if space bar is pressed
     {
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
     }
  
-   bool IsGrounded()
+   bool IsGrounded() // Checks if player is within a given distance directly above a ground object
    {
        return Physics.Raycast(transform.position, Vector3.down, _distToGround + 0.1f);
     }
