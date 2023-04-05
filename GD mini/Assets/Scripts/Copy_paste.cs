@@ -33,7 +33,7 @@ public class Copy_paste : MonoBehaviour {
     void Update() {
         if (pastes <= 0) {
             if (hideClipboard) return;
-            DisableGhost();
+            ghost.GetComponent<MeshRenderer>().enabled = false;
             hideClipboard = true;
         }
         DetectObjectWithRaycast();
@@ -78,7 +78,8 @@ public class Copy_paste : MonoBehaviour {
         
         // Disable ghost
         if (ghost.GetComponent<CheckCollision>().colliding || hideClipboard) {
-            DisableGhost();
+            ghostColor.a = 0.1f;
+            ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
             return;
         }
         ghost.GetComponent<MeshRenderer>().enabled = true;
@@ -92,13 +93,6 @@ public class Copy_paste : MonoBehaviour {
         pastes--;
         UpdateUI();
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
-    }
-
-    public void DisableGhost() {
-        if (hideClipboard) return;
-        ghost.GetComponent<MeshRenderer>().enabled = false;
-        //ghostColor.a = 0.0f;
-        //ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
     }
 
     public void emptyClipboard() {
