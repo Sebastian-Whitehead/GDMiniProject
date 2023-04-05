@@ -290,7 +290,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1800336837455621481, guid: 94c0e3a5bdef3ef42a3f12783728970d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94c0e3a5bdef3ef42a3f12783728970d, type: 3}
 --- !u!4 &8932568908161250871 stripped
 Transform:
@@ -304,6 +305,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6822578869521713061}
     m_Modifications:
+    - target: {fileID: 197516984019240387, guid: f4da5d472683e194b8a3521000f078a4, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3317386244087272770, guid: f4da5d472683e194b8a3521000f078a4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
