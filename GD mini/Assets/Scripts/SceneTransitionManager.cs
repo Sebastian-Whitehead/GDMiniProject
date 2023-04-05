@@ -4,16 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneTransitionManager : MonoBehaviour
-{
+public class SceneTransitionManager : MonoBehaviour {
     
-    public FadeScreen fadeScreen;       // Fading plane attached to the players head
+    private FadeScreen fadeScreen;       // Fading plane attached to the players head
     private AudioSource _soundSource;   // Audio Source on this game objet
 
-    private void Start()
-    {
+    private void Start() {
         _soundSource = gameObject.GetComponent<AudioSource>();          // Get audio source component
         _soundSource.Play();                        
+    }
+
+    private void Awake() {
+        GameObject faceScreenObject = GameObject.Find("Camera Pivot/Main Camera/Face Screen");
+        fadeScreen = faceScreenObject.GetComponent<FadeScreen>();
     }
 
     public void GoToScene(string sceneName)

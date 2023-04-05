@@ -156,3 +156,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   original: {fileID: 2100000, guid: 6a78d6c661050064a9b7506091d2f94d, type: 2}
   hovered: {fileID: 2100000, guid: 25aa0a64381f87d4a9cef42ffcaab89b, type: 2}
+  copy_PasteHolder: {fileID: 6256881825971167383, guid: e62087bb37bc81e4fb562761565ca28c, type: 3}
