@@ -6,7 +6,7 @@ using TMPro;
 
 public class Copy_paste : MonoBehaviour {
 
-
+    public bool active = true;
     public Material original; 
     public Material hovered;
     public string pasteTxt = "Paste";
@@ -19,7 +19,8 @@ public class Copy_paste : MonoBehaviour {
     private GameObject ghost;
     private Color ghostColor;
     private RaycastHit hit;
-    
+    private GameObject Target = null;
+
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
@@ -31,21 +32,40 @@ public class Copy_paste : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (pastes <= 0) {
-            if (hideClipboard) return;
-            ghost.GetComponent<MeshRenderer>().enabled = false;
-            hideClipboard = true;
-        }
+        if (!active) return;
+        Disable();
         DetectObjectWithRaycast();
         emptyClipboard();
+    }
+
+    public void Disable() {
+        if (pastes > 0) return;
+        ghost.GetComponent<MeshRenderer>().enabled = false;
+        hideClipboard = true;
+        active = false;
+        if (Target == null) return;
+        Target.GetComponent<Renderer>().material = original;
+        Target = null;
     }
 
 
     public void DetectObjectWithRaycast() {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (!Physics.Raycast(ray, out hit, 1000, ~IgnoreMe)) return;
+        if (!Physics.Raycast(ray, out hit, 1000, ~IgnoreMe) || hideClipboard) return;
+        hover(); // Hover copyable objects
         copy(); // Copy object
         paste(); // Paste object and show ghost
+    }
+
+    private void hover() {
+        if (hit.collider.gameObject.tag == "Copyable") {
+            Target = hit.collider.gameObject;
+            Target.GetComponent<Renderer>().material = hovered;
+        } else {
+            if (Target == null) return; 
+            Target.GetComponent<Renderer>().material = original;
+            Target = null;
+        }
     }
 
     public void copy() {
@@ -92,7 +112,8 @@ public class Copy_paste : MonoBehaviour {
         if (!Input.GetMouseButtonDown(0)) return;
         pastes--;
         UpdateUI();
-        Instantiate(clipboard, pasteLocation, Quaternion.identity);
+        GameObject pastedObject = Instantiate(clipboard, pasteLocation, Quaternion.identity);
+        pastedObject.GetComponent<Renderer>().material = original;
     }
 
     public void emptyClipboard() {
@@ -101,10 +122,8 @@ public class Copy_paste : MonoBehaviour {
     }
 
     private void UpdateUI() {
-        if (!pastesUI) return;
         string tmpPasteTxt = pasteTxt;
         if (pastes == 1) tmpPasteTxt += "s";
-
         pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
         if (pastes == 0) pastesUI.color = new Color(150, 0, 0, 255);
     }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5776117913366486914}
   - component: {fileID: 5776117913366486915}
   - component: {fileID: -4625028686581124083}
+  - component: {fileID: 5861209118587550359}
   m_Layer: 0
   m_Name: Standard Cube
   m_TagString: Copyable
@@ -156,4 +157,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   original: {fileID: 2100000, guid: 6a78d6c661050064a9b7506091d2f94d, type: 2}
   hovered: {fileID: 2100000, guid: 25aa0a64381f87d4a9cef42ffcaab89b, type: 2}
-  copy_PasteHolder: {fileID: 6256881825971167383, guid: e62087bb37bc81e4fb562761565ca28c, type: 3}
+--- !u!114 &5861209118587550359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5776117913366486972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79b7f1c6df68804cb09009b9c40d784, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
