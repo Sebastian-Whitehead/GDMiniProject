@@ -1249,6 +1249,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_text
+      value: 'Get to the red platform!
+
+        Move the yellow cube.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
     - target: {fileID: 6323411865456951488, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_Name
       value: Managers

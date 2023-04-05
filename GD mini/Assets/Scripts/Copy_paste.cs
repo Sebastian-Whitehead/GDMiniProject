@@ -28,10 +28,10 @@ public class Copy_paste : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //if (pastes <= 0) {
-        //    if (hideClipboard) return;
-        //    hideClipboard = true;
-        //}
+        if (pastes <= 0) {
+            if (hideClipboard) return;
+            hideClipboard = true;
+        }
         DetectObjectWithRaycast();
         emptyClipboard();
     }
