@@ -412,6 +412,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2021054958}
     m_Modifications:
+    - target: {fileID: -4625028686581124083, guid: a7d3743093d29e84eb591d38d935892f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4625028686581124083, guid: a7d3743093d29e84eb591d38d935892f, type: 3}
+      propertyPath: copy_PasteHolder
+      value: 
+      objectReference: {fileID: 2122852639}
     - target: {fileID: 5776117913366486912, guid: a7d3743093d29e84eb591d38d935892f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1131,6 +1139,14 @@ PrefabInstance:
       propertyPath: m_text
       value: What to do now?
       objectReference: {fileID: 0}
+    - target: {fileID: 943526265634331417, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: fadeScreen
+      value: 
+      objectReference: {fileID: 2121489312}
+    - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: pastes
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6323411865456951488, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -1189,6 +1205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+--- !u!4 &2122852639 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2056857761192780112, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+  m_PrefabInstance: {fileID: 2122852638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2737520945331067432
 PrefabInstance:
   m_ObjectHideFlags: 0
