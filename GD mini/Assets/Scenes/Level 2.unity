@@ -668,9 +668,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_text
+      value: 'Get the yellow cube
+
+        Copy:right click & Paste:left click
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 594.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230.9
+      objectReference: {fileID: 0}
     - target: {fileID: 6323411865456951488, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_Name
       value: Managers
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447128115633682151, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: nextLevelNr
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6822578869521713061, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_RootOrder
@@ -720,6 +740,10 @@ PrefabInstance:
       propertyPath: fadeScreen
       value: 
       objectReference: {fileID: 2121489312}
+    - target: {fileID: 8364099096985749476, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: pastes
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
 --- !u!1 &1330937323

@@ -20,15 +20,18 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
+    }
+
+    private void Awake() {
         UpdateUI();
     }
 
     // Update is called once per frame
     void Update() {
-        if (pastes <= 0) {
-            if (hideClipboard) return;
-            hideClipboard = true;
-        }
+        //if (pastes <= 0) {
+        //    if (hideClipboard) return;
+        //    hideClipboard = true;
+        //}
         DetectObjectWithRaycast();
         emptyClipboard();
     }
@@ -47,14 +50,11 @@ public class Copy_paste : MonoBehaviour {
 
         clipboard = hit.collider.gameObject; // Copy object to clipboard
         hideClipboard = false;
-        makeGhost(); // Instantiate ghost
-    }
-
-    public void makeGhost() {
+        
         Destroy(ghost);
-
+        
         ghost = Instantiate(clipboard, hit.point, Quaternion.identity);
-        ghost.name = clipboard.name + " (Ghost)";
+        ghost.name = "Ghost";
         ghost.layer = LayerMask.NameToLayer("Ghost");
 
         ghost.GetComponent<Collider>().isTrigger = true;
@@ -84,18 +84,21 @@ public class Copy_paste : MonoBehaviour {
 
         // Paste ghost
         if (!Input.GetMouseButtonDown(0)) return;
+        pastes--;
         UpdateUI();
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 
     public void emptyClipboard() {
         if (!Input.GetMouseButtonDown(2)) return;
-        hideClipboard = !hideClipboard;
+        hideClipboard = false;
     }
 
     private void UpdateUI() {
+        if (!pastesUI) return;
         string tmpPasteTxt = pasteTxt;
         if (pastes == 1) tmpPasteTxt += "s";
+
         pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
     }
 
