@@ -20,7 +20,7 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
-        pastesUI.text = string.Format("Pates: {0}", pastes);
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -84,15 +84,19 @@ public class Copy_paste : MonoBehaviour {
 
         // Paste ghost
         if (!Input.GetMouseButtonDown(0)) return;
-        string tmpPasteTxt = pasteTxt;
-        if (pastes == 1) tmpPasteTxt += "s";
-        pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
+        UpdateUI();
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 
     public void emptyClipboard() {
         if (!Input.GetMouseButtonDown(2)) return;
         hideClipboard = !hideClipboard;
+    }
+
+    private void UpdateUI() {
+        string tmpPasteTxt = pasteTxt;
+        if (pastes == 1) tmpPasteTxt += "s";
+        pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
     }
 
 }
