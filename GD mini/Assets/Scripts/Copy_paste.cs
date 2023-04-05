@@ -59,10 +59,11 @@ public class Copy_paste : MonoBehaviour {
 
     private void hover() {
         if (hit.collider.gameObject.tag == "Copyable") {
+            if (Target != null) Target.GetComponent<Renderer>().material = original;
             Target = hit.collider.gameObject;
             Target.GetComponent<Renderer>().material = hovered;
         } else {
-            if (Target == null) return; 
+            if (Target == null) return;
             Target.GetComponent<Renderer>().material = original;
             Target = null;
         }
