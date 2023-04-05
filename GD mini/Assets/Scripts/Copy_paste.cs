@@ -6,6 +6,9 @@ using TMPro;
 
 public class Copy_paste : MonoBehaviour {
 
+
+    public Material original; 
+    public Material hovered;
     public string pasteTxt = "Paste";
     public int pastes;
     public TextMeshProUGUI pastesUI;
@@ -30,6 +33,7 @@ public class Copy_paste : MonoBehaviour {
     void Update() {
         if (pastes <= 0) {
             if (hideClipboard) return;
+            ghost.GetComponent<MeshRenderer>().enabled = false;
             hideClipboard = true;
         }
         DetectObjectWithRaycast();
@@ -60,6 +64,7 @@ public class Copy_paste : MonoBehaviour {
         ghost.GetComponent<Collider>().isTrigger = true;
         ghost.GetComponent<Rigidbody>().isKinematic = true;
         ghostColor = ghost.GetComponent<MeshRenderer>().material.color;
+        ghost.GetComponent<Renderer>().material = original;
     }
 
     public void paste() {
@@ -73,10 +78,11 @@ public class Copy_paste : MonoBehaviour {
         
         // Disable ghost
         if (ghost.GetComponent<CheckCollision>().colliding || hideClipboard) {
-            ghostColor.a = 0.0f;
+            ghostColor.a = 0.1f;
             ghost.GetComponent<MeshRenderer>().material.color = ghostColor;
             return;
         }
+        ghost.GetComponent<MeshRenderer>().enabled = true;
 
         // Render ghost
         ghostColor.a = 0.5f;
@@ -100,6 +106,7 @@ public class Copy_paste : MonoBehaviour {
         if (pastes == 1) tmpPasteTxt += "s";
 
         pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
+        if (pastes == 0) pastesUI.color = new Color(150, 0, 0, 255);
     }
 
 }
