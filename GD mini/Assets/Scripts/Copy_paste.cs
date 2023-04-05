@@ -6,6 +6,7 @@ using TMPro;
 
 public class Copy_paste : MonoBehaviour {
 
+    public string pasteTxt = "Paste";
     public int pastes;
     public TextMeshProUGUI pastesUI;
     public LayerMask IgnoreMe;
@@ -83,7 +84,9 @@ public class Copy_paste : MonoBehaviour {
 
         // Paste ghost
         if (!Input.GetMouseButtonDown(0)) return;
-        pastesUI.text = string.Format("Pates: {0}", --pastes);
+        string tmpPasteTxt = pasteTxt;
+        if (pastes == 1) tmpPasteTxt += "s";
+        pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
         Instantiate(clipboard, pasteLocation, Quaternion.identity);
     }
 
