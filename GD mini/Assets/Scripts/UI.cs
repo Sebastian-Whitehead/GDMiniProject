@@ -9,7 +9,6 @@ public class UI : MonoBehaviour {
     public AudioSource RestartAS;
 
     void Update() {
-        Debug.Log(gameObject.name);
         if (Input.GetKeyDown(KeyCode.R)) ReloadScene();
     }
 

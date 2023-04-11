@@ -18,10 +18,8 @@ public class CheckCollision : MonoBehaviour {
     private void FixedUpdate() {
         float speed = new Vector2(rb.velocity.x, rb.velocity.z).magnitude;
 
-        if (speed > 0.01f && !audioSource.isPlaying) {
+        if (speed > 0.0001f && !audioSource.isPlaying) {
             audioSource.Play();
-        } else {
-            audioSource.Stop();
         }
     }
     

@@ -27,7 +27,6 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
-        Debug.Log(ChargesUI);
         ChargesUI.maxMana = 9;
         ChargesUI.Expend(3f);
     }
