@@ -1366,6 +1366,17 @@ PrefabInstance:
       objectReference: {fileID: 8364099096329607409}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593f2b30d6256d94eaa7a39c5c824bc8, type: 3}
+--- !u!114 &2121489312 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2687620003714002062, guid: 593f2b30d6256d94eaa7a39c5c824bc8, type: 3}
+  m_PrefabInstance: {fileID: 2121489311}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fac2e8bc1fbc374baed37b206552644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2737520945331067432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1521,6 +1532,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: ChargesUI
+      value: 
+      objectReference: {fileID: 2121489312}
     - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 6.0539

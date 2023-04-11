@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +27,7 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
-        ChargesUI = camera.GetComponent<CPCharges>();
+        Debug.Log(ChargesUI);
         ChargesUI.mana = pastes;
         ChargesUI.maxMana = 9;
     }
