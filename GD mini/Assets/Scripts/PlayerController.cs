@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _turnspeedInAir = 360;
 
     public AudioSource WalkAS;
+    public AudioSource JumpAS;
     
     private Vector3 _input;
 
@@ -89,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump") && IsGrounded())
         {
+            JumpAS.Play();
             _rb.AddForce(new Vector3(0, 5, 0), ForceMode.Impulse);
         }
     }
