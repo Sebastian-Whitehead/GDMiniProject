@@ -10,7 +10,7 @@ public class LevelComplete : MonoBehaviour {
     public AudioSource MeowAS;
 
     private void OnTriggerEnter(Collider col) {
-        if (col.tag != "Player") return; 
+        if (col.tag != "Player") return;
         StartCoroutine(PlayEndSceneSound());
     }
 

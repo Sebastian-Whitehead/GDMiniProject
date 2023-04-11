@@ -6,11 +6,12 @@ public class Waste : MonoBehaviour {
 
     public AudioSource WasteAS;
 
-    void OnTriggerStay(Collider collider) {
+    void OnTriggerEnter(Collider collider) {
         if (collider.transform.tag != "Player") return;
+        StartCoroutine(WasteRestart());
     }
     
-    IEnumerator PlayEndSceneSound(){
+    IEnumerator WasteRestart(){
         WasteAS.Play();
         yield return new WaitWhile (()=> WasteAS.isPlaying);
         new Menu().ReloadScene();
