@@ -129,7 +129,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 799f206b6a8d3d44ea97270050204ec7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.107
+  m_Volume: 0.114
   m_Pitch: 0.79
   Loop: 0
   Mute: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   _turnspeed: 720
   _speedInAir: 3.5
   _turnspeedInAir: 360
-  WalkAS: {fileID: 7495997414012806686}
+  WalkAS: {fileID: 777202675607935340}
   JumpAS: {fileID: 7495997414012806686}
 --- !u!114 &394396168
 MonoBehaviour:
