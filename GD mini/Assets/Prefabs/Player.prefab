@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ca11cbd675177c743be51a2f0e06b19c, type: 3}
       propertyPath: m_Name
-      value: Idle Variant
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca11cbd675177c743be51a2f0e06b19c, type: 3}
@@ -90,6 +90,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!135 &11417492398131900
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974748082868918588}
+  m_Material: {fileID: 13400000, guid: 2404f24bcd0fb2542892edf7c3880d94, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3034785
+  m_Center: {x: 1.2999754, y: 1.8137625, z: 0.035577208}
 --- !u!136 &5580404428818474030
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -100,13 +113,13 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6730829
-  m_Height: 1.3461658
+  m_Radius: 0.90780556
+  m_Height: 3.8640878
   m_Direction: 1
-  m_Center: {x: 8.0738164e-16, y: 0, z: -0.17308281}
+  m_Center: {x: -2.875321e-16, y: 1.8991193, z: 0.061639827}
 --- !u!95 &394396166
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -123,7 +136,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-617712083846807932
 MonoBehaviour:
   m_ObjectHideFlags: 0
