@@ -9,9 +9,8 @@ public class Copy_paste : MonoBehaviour {
     public bool active = true;
     public Material original; 
     public Material hovered;
-    public string pasteTxt = "Paste";
     public int pastes;
-    public TextMeshProUGUI pastesUI;
+    public CPCharges ChargesUI;
     public LayerMask IgnoreMe;
     private Camera camera;
     private GameObject clipboard;
@@ -27,6 +26,9 @@ public class Copy_paste : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
+        ChargesUI = camera.GetComponent<CPCharges>();
+        ChargesUI.mana = pastes;
+        ChargesUI.maxMana = 9;
     }
 
     private void Awake() {
@@ -130,10 +132,7 @@ public class Copy_paste : MonoBehaviour {
     }
 
     private void UpdateUI() {
-        string tmpPasteTxt = pasteTxt;
-        if (pastes == 1) tmpPasteTxt += "s";
-        pastesUI.text = string.Format("{0}: {1}", tmpPasteTxt, pastes);
-        if (pastes == 0) pastesUI.color = new Color(150, 0, 0, 255);
+        ChargesUI.Expend(1f);
     }
 
 }

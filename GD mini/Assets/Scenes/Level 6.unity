@@ -1098,17 +1098,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1044778693}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1102044107 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7741847169745140563, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
-  m_PrefabInstance: {fileID: 1202446282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1202446282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1120,6 +1109,22 @@ PrefabInstance:
       propertyPath: m_text
       value: Press "r" to reset
       objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fc800d0dfe1fd6b4a99ae8b877213b29, type: 2}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6262376754385638519, guid: fc800d0dfe1fd6b4a99ae8b877213b29, type: 2}
     - target: {fileID: 943526265634331417, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: fadeScreen
       value: 
@@ -1127,6 +1132,14 @@ PrefabInstance:
     - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: pastes
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.0538
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 26.04
       objectReference: {fileID: 0}
     - target: {fileID: 6323411865456951488, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_Name
@@ -1191,7 +1204,7 @@ PrefabInstance:
     - target: {fileID: 8364099096985749476, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: pastesUI
       value: 
-      objectReference: {fileID: 1102044107}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
 --- !u!114 &1202446283 stripped

@@ -732,10 +732,25 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Get the yellow cube
 
-        Copy:right click & Paste:left click
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: fc800d0dfe1fd6b4a99ae8b877213b29, type: 2}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 773667415737764325, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -6262376754385638519, guid: fc800d0dfe1fd6b4a99ae8b877213b29, type: 2}
     - target: {fileID: 943526265634331417, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: fadeScreen
       value: 
@@ -749,8 +764,12 @@ PrefabInstance:
       value: 594.1
       objectReference: {fileID: 0}
     - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5706643243068887489, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -230.9
+      value: 26.04
       objectReference: {fileID: 0}
     - target: {fileID: 6323411865456951488, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: m_Name
