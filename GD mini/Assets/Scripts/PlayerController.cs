@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float _speedInAir = 4;
     [SerializeField] private float _turnspeedInAir = 360;
+
+    public AudioSource WalkAS;
     
     private Vector3 _input;
 
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
     void Move() // Move character in look direction (slower if in the air)
     {
         if (IsGrounded()) {
+            if (!WalkAS.isPlaying) WalkAS.Play();
             _rb.MovePosition(transform.position + 
                              transform.forward * (Mathf.Round(_input.magnitude) * _speed * Time.deltaTime));
         } else {
