@@ -14,6 +14,6 @@ public class Waste : MonoBehaviour {
     IEnumerator WasteRestart(){
         WasteAS.Play();
         yield return new WaitWhile (()=> WasteAS.isPlaying);
-        new Menu().ReloadScene();
+        new UI().ReloadScene();
      }
 }

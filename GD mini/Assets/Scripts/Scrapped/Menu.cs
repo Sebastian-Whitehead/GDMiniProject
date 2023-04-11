@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UI : MonoBehaviour {
-
+public class Menu : MonoBehaviour {
 
     public AudioSource RestartAS;
 
@@ -20,6 +19,6 @@ public class UI : MonoBehaviour {
     IEnumerator ReloadSceneSound(){
         RestartAS.Play();
         yield return new WaitWhile (()=> RestartAS.isPlaying);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
      }
 }
