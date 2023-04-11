@@ -28,8 +28,8 @@ public class Copy_paste : MonoBehaviour {
     void Start() {
         camera = Camera.main;
         Debug.Log(ChargesUI);
-        ChargesUI.mana = pastes;
         ChargesUI.maxMana = 9;
+        ChargesUI.Expend(3f);
     }
 
     private void Awake() {
@@ -39,6 +39,7 @@ public class Copy_paste : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (!active) return;
+        ChargesUI.mana = pastes;
         Disable();
         DetectObjectWithRaycast();
         emptyClipboard();
