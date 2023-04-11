@@ -20,6 +20,9 @@ public class Copy_paste : MonoBehaviour {
     private RaycastHit hit;
     private GameObject Target = null;
 
+    public AudioSource CopyAS;
+    public AudioSource PasteAS;
+
     // Start is called before the first frame update
     void Start() {
         camera = Camera.main;
@@ -46,7 +49,7 @@ public class Copy_paste : MonoBehaviour {
         hideClipboard = true;
         active = false;
         if (Target == null) return;
-        Target.GetComponent<Renderer>().material = original;
+        Target.GetComponent<Renderer>().material = original; 
         Target = null;
     }
 
@@ -88,6 +91,8 @@ public class Copy_paste : MonoBehaviour {
         ghost.GetComponent<Rigidbody>().isKinematic = true;
         ghostColor = ghost.GetComponent<MeshRenderer>().material.color;
         ghost.GetComponent<Renderer>().material = original;
+
+        CopyAS.Play();
     }
 
     public void paste() {
@@ -117,6 +122,8 @@ public class Copy_paste : MonoBehaviour {
         UpdateUI();
         GameObject pastedObject = Instantiate(clipboard, pasteLocation, Quaternion.identity);
         pastedObject.GetComponent<Renderer>().material = original;
+
+        PasteAS.Play();
     }
 
     public void emptyClipboard() {

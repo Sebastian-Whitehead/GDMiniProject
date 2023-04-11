@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: fadeScreen
       value: 
       objectReference: {fileID: 2121489312}
+    - target: {fileID: 2157020097429673297, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: pastes
       value: 2
