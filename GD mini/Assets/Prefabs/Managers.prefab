@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3da6c2cc8297a4eaf1d9316310abea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   original: {fileID: 2100000, guid: 6a78d6c661050064a9b7506091d2f94d, type: 2}
   hovered: {fileID: 2100000, guid: 25aa0a64381f87d4a9cef42ffcaab89b, type: 2}
   pasteTxt: Paste
@@ -232,7 +233,6 @@ GameObject:
   - component: {fileID: 2056857761192780112}
   - component: {fileID: 5779331408099677910}
   - component: {fileID: 1907032430498299239}
-  - component: {fileID: 943526265634331417}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -363,19 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba73e5966a56a3f4cae519b69651cb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &943526265634331417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8782499274994522925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa22c4c0d06e3643a05655e778be2c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeScreen: {fileID: 0}
 --- !u!1001 &4889330806637828957
 PrefabInstance:
   m_ObjectHideFlags: 0

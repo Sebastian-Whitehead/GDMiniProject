@@ -40,7 +40,7 @@ public class Copy_paste : MonoBehaviour {
 
     public void Disable() {
         if (pastes > 0) return;
-        ghost.GetComponent<MeshRenderer>().enabled = false;
+        if (ghost) ghost.GetComponent<MeshRenderer>().enabled = false;
         hideClipboard = true;
         active = false;
         if (Target == null) return;

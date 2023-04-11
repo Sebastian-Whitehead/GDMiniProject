@@ -15,17 +15,15 @@ public class SceneTransitionManager : MonoBehaviour {
     }
 
     private void Awake() {
-        GameObject faceScreenObject = GameObject.Find("Camera Pivot/Main Camera/Face Screen");
-        fadeScreen = faceScreenObject.GetComponent<FadeScreen>();
+        //GameObject faceScreenObject = GameObject.Find("FaceScreen");
+        fadeScreen = gameObject.GetComponent<FadeScreen>();
     }
 
-    public void GoToScene(string sceneName)
-    {
+    public void GoToScene(string sceneName) {
         StartCoroutine(GoToSceneRoutine(sceneName));
     }
     
-    IEnumerator GoToSceneRoutine(string sceneName)
-    {
+    IEnumerator GoToSceneRoutine(string sceneName) {
         fadeScreen.FadeOut();                                            // Fade the fading screen to fill opacity
         yield return new WaitForSeconds(fadeScreen.defaultFadeDuration); // Wait for the default fade duration
         

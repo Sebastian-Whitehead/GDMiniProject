@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour
-{
+public class Menu : MonoBehaviour {
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))  
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex ) ;
+        if (Input.GetKeyDown(KeyCode.R)) ReloadScene();
+    }
+
+    public void ReloadScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
