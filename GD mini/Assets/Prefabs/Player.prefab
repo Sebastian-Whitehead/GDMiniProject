@@ -113,10 +113,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.90780556
-  m_Height: 3.8640878
+  m_Radius: 0.93
+  m_Height: 3.62
   m_Direction: 1
-  m_Center: {x: 8.0738164e-16, y: 0, z: -0.17308281}
+  m_Center: {x: -7.473414e-17, y: 1.7517312, z: 0.016021166}
 --- !u!82 &7495997414012806686
 AudioSource:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ AudioSource:
     m_RotationOrder: 4
 --- !u!95 &394396166
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -232,8 +232,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-617712083846807932
 MonoBehaviour:
   m_ObjectHideFlags: 0
