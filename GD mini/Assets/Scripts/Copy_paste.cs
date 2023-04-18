@@ -85,6 +85,7 @@ public class Copy_paste : MonoBehaviour {
         Destroy(ghost);
         
         ghost = Instantiate(clipboard, hit.point, Quaternion.identity);
+        ghost.transform.rotation = hit.collider.transform.rotation;
         ghost.name = "Ghost";
         ghost.layer = LayerMask.NameToLayer("Ghost");
 
@@ -122,6 +123,7 @@ public class Copy_paste : MonoBehaviour {
         pastes--;
         UpdateUI();
         GameObject pastedObject = Instantiate(clipboard, pasteLocation, Quaternion.identity);
+        pastedObject.transform.rotation = ghost.transform.rotation;
         pastedObject.GetComponent<Renderer>().material = original;
 
         PasteAS.Play();
