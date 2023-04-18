@@ -13,7 +13,7 @@ public class Copy_paste : MonoBehaviour {
     public int pastes;
     public CPCharges ChargesUI;
     public LayerMask IgnoreMe;
-    private Camera camera;
+    private Camera mainCam;
     private GameObject clipboard;
     private bool hideClipboard = false;
     private GameObject ghost;
@@ -26,7 +26,7 @@ public class Copy_paste : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        camera = Camera.main;
+        mainCam = Camera.main;
         ChargesUI.maxMana = 9;
         ChargesUI.Expend(3f);
     }
@@ -56,7 +56,7 @@ public class Copy_paste : MonoBehaviour {
 
 
     public void DetectObjectWithRaycast() {
-        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out hit, 1000, ~IgnoreMe) || hideClipboard) return;
         hover(); // Hover copyable objects
         copy(); // Copy object

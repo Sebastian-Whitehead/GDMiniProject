@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Waste : MonoBehaviour {
 
@@ -13,7 +14,7 @@ public class Waste : MonoBehaviour {
     
     IEnumerator WasteRestart(){
         WasteAS.Play();
-        yield return new WaitWhile (()=> WasteAS.isPlaying);
-        new UI().ReloadScene();
-     }
+        while (WasteAS.isPlaying) yield return null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

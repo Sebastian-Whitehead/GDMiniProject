@@ -16,7 +16,8 @@ public class UI : MonoBehaviour {
         StartCoroutine(ReloadSceneSound());
     }
 
-    IEnumerator ReloadSceneSound(){
+    public IEnumerator ReloadSceneSound(){
+        Debug.Log("Reload scene");
         RestartAS.Play();
         yield return new WaitWhile (()=> RestartAS.isPlaying);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
