@@ -60,16 +60,10 @@ public class PlayerController : MonoBehaviour
             var relative = (transform.position + skewedInput) - transform.position; // Give the relative look direction for the player object
             var rot = Quaternion.LookRotation(relative, Vector3.up); // Target player object rotation
             
-            if (IsGrounded()) // Rotation interpolation when grounded
-            {
+            
+            
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeed * Time.deltaTime);
                 return transform.rotation == rot; // If player is ready to move
-            }
-            else // Player rotation when in the air
-            {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rot, _turnspeedInAir * Time.deltaTime);
-                return true;
-            }
         }
         return false;
     }
