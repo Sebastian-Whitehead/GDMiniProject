@@ -85,6 +85,10 @@ public class Copy_paste : MonoBehaviour {
         Destroy(ghost);
         
         ghost = Instantiate(clipboard, hit.point, Quaternion.identity);
+<<<<<<< HEAD
+=======
+        ghost.transform.rotation = hit.collider.transform.rotation;
+>>>>>>> parent of 7711c41 (Non rotation)
         ghost.name = "Ghost";
         ghost.layer = LayerMask.NameToLayer("Ghost");
 
@@ -122,6 +126,10 @@ public class Copy_paste : MonoBehaviour {
         pastes--;
         UpdateUI();
         GameObject pastedObject = Instantiate(clipboard, pasteLocation, Quaternion.identity);
+<<<<<<< HEAD
+=======
+        pastedObject.transform.rotation = ghost.transform.rotation;
+>>>>>>> parent of 7711c41 (Non rotation)
         pastedObject.GetComponent<Renderer>().material = original;
 
         PasteAS.Play();
