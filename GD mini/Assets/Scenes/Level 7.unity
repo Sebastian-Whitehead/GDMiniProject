@@ -1567,6 +1567,14 @@ PrefabInstance:
       propertyPath: fadeScreen
       value: 
       objectReference: {fileID: 1160787447}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: pastes
       value: 8
