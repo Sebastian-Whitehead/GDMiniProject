@@ -1211,6 +1211,38 @@ PrefabInstance:
       propertyPath: fadeScreen
       value: 
       objectReference: {fileID: 2121489312}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 329.75952
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 175.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4712978321960820382, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -160
+      objectReference: {fileID: 0}
     - target: {fileID: 4976733759241853778, guid: cd59b44c7639f014c8bca4c454ef502e, type: 3}
       propertyPath: pastes
       value: 4
