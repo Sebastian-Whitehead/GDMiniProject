@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _speedInAir = 4;
     [SerializeField] private float _turnspeedInAir = 360;
 
+    [SerializeField] private int test;
+
     public AudioSource WalkAS;
     public AudioSource JumpAS;
     
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_input != Vector3.zero)
         {
-            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,45,0)); // A 4x4 rotation matrix that rotates 45 degrees around y axis 
+            var matrix = Matrix4x4.Rotate(Quaternion.Euler(0,test,0)); // A 4x4 rotation matrix that rotates 45 degrees around y axis 
             var skewedInput = matrix.MultiplyPoint3x4(_input);      // Rotate the given input direction
             
             var relative = (transform.position + skewedInput) - transform.position; // Give the relative look direction for the player object
